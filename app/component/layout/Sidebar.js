@@ -3,32 +3,40 @@
  */
 import React from 'react';
 import {Menu, Icon} from 'antd';
+import {NavLink} from 'react-router-dom';
 
-class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
+export default class Sidebar extends React.Component {
     render() {
+        const {
+            res
+        } = this.props;
         return (
             <div className="layout-sidebar">
                 <div className="logo"/>
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1">
-                        <Icon type="user"/>
-                        <span>nav 1</span>
+                <Menu theme="dark"
+                      mode="inline"
+                      defaultSelectedKeys={[res]}
+                >
+                    <Menu.Item key="content01">
+                        <NavLink to="/home/content01">
+                            <Icon type="user"/>
+                            <span>nav 1</span>
+                        </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="2">
-                        <Icon type="video-camera"/>
-                        <span>nav 2</span>
+                    <Menu.Item key="content02">
+                        <NavLink to="/home/content02">
+                            <Icon type="video-camera"/>
+                            <span>nav 2</span>
+                        </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="3">
-                        <Icon type="upload"/>
-                        <span>nav 3</span>
+                    <Menu.Item key="content03">
+                        <NavLink to="/home/content03">
+                            <Icon type="upload"/>
+                            <span>nav 3</span>
+                        </NavLink>
                     </Menu.Item>
                 </Menu>
             </div>
         )
     }
 }
-export default Sidebar;
